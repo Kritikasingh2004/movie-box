@@ -1,11 +1,20 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import heroImg from "./assets/hero.png";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "./assets/vite.svg";
+import "./style/App.css";
+import { client } from "./lib/appwrite";
 
 function App() {
-  const [count, setCount] = useState(0)
+  function handleClick() {
+    client
+      .ping()
+      .then((response) => {
+        console.log("Appwrite ping response:", response);
+      })
+      .catch((error) => {
+        console.error("Appwrite ping error:", error);
+      });
+  }
 
   return (
     <>
@@ -21,12 +30,8 @@ function App() {
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
+        <button type="button" className="counter" onClick={handleClick}>
+          Ping Appwrite
         </button>
       </section>
 
@@ -116,7 +121,7 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
