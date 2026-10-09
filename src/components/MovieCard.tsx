@@ -1,4 +1,3 @@
-import React from "react";
 import type { Movie } from "../types/movies";
 
 const MovieCard = ({ movie }: { movie: Movie }) => {

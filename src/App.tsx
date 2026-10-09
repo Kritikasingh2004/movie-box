@@ -108,9 +108,9 @@ const App = () => {
 
               <ul>
                 {trendingMovies.map((movie, index) => (
-                  <li key={movie.id}>
+                  <li key={movie.movie_id}>
                     <p>{index + 1}</p>
-                    <img src={movie.poster_path || ""} alt={movie.title} />
+                    <img src={movie.poster_path || ""} alt={movie.searchTerm} />
                   </li>
                 ))}
                 ;
