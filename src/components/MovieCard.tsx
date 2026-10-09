@@ -1,12 +1,10 @@
 import React from "react";
+import type { Movie } from "../types/movies";
 
-const MovieCard = ({
-  title,
-  vote_average,
-  poster_path,
-  release_date,
-  original_language,
-}: Movie) => {
+const MovieCard = ({ movie }: { movie: Movie }) => {
+  const { title, vote_average, poster_path, release_date, original_language } =
+    movie;
+
   return (
     <div className="movie-card">
       <img
